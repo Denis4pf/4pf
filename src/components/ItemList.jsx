@@ -17,7 +17,6 @@ const ItemList = ({ posts }) => (
           <Link to={`/post/${post.id}`} className="list-item">
             <section className="list-item-content">
               <h3 className="list-item-title">{post.title}</h3>
-              <h2>{post.id}</h2>
               <p>
                 {post.body.length >= 206
                   ? post.body.substring(0, 206) + " [...]"

@@ -26,6 +26,12 @@
   align-items: center;
 }
 
+.list-item .lazyload-wrapper {
+  width: auto;
+  height: auto;
+  margin-left: auto;
+}
+
 .list .list-item:hover {
   transform: scale(1.05);
 }
@@ -50,7 +56,6 @@
 .list-item .list-item-thumbail {
   width: 100px;
   height: auto;
-  margin-left: auto;
   object-fit: cover;
 }
 
@@ -100,15 +105,15 @@
   cursor: pointer;
   display: block;
   border-radius: 5px;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
-.button:disabled{
+.button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.button:active{
+.button:active {
   background: #00464b;
   transform: translateY(1px);
 }
@@ -122,7 +127,7 @@
   margin: auto;
 }
 
-.fa-margin-r{
+.fa-margin-r {
   margin-right: 5px;
 }
 
@@ -140,10 +145,13 @@
   .list-item {
     flex-direction: column-reverse;
   }
-
-  .list-item .list-item-thumbail {
+  .list-item .list-item-thumbail,
+  .list-item .lazyload-wrapper {
     width: 100%;
     height: 170px;
+  }
+
+  .list-item .lazyload-wrapper {
     margin-bottom: 0.8rem;
   }
 
