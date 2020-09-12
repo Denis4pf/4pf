@@ -16,9 +16,13 @@ export default function Home() {
   const [maxRange, setMaxRange] = useState(ITEMS_FOR_PAGE);
   const [minRange, setMinRange] = useState(0);
   const [postsRange, setPostsRange] = useState([]);
-  const [post, setPost] = useState(null);
+
+  const [posts, setPosts] = useState(null);
+  const [postsFiltered, setPostsFiltered] = useState(null);
+
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [search, setSearch] = useState("");
 
   const setStatusResquet = (posts, error = false) => {
     setIsLoading(false);
@@ -27,7 +31,7 @@ export default function Home() {
       return;
     }
     setError(false);
-    setPost(posts);
+    setPosts(posts);
   };
 
   const loadAllPosts = useCallback(() => {
@@ -48,11 +52,32 @@ export default function Home() {
   }, []);
 
   const setPostsRangeMemo = useCallback(() => {
-    if (post) {
-      const newPostRange = [...postsRange, ...post.slice(minRange, maxRange)];
+    if (posts) {
+      const newPostRange = [...postsRange, ...posts.slice(minRange, maxRange)];
       setPostsRange(newPostRange);
     }
-  }, [post, minRange, maxRange]);
+  }, [posts, minRange, maxRange]);
+
+  const onChangeSearch = ({ target }) => {
+    setSearch(target.value.replace(/  {2,}/, ""));
+  };
+
+  useEffect(() => {
+    // es importante que la variable search este definida o sea distinta a una
+    // cadena vacia, ya que coincidira con todas los titulos de los posts
+    if (posts && search) {
+      const regex = new RegExp(`${search}`, "gi");
+      const postsFilteredArray = posts.filter((post) => {
+        return regex.test(post.title);
+      });
+      setPostsFiltered(postsFilteredArray);
+    } else {
+      // ponemos nulo, para que no se muestren todos los posts si no hay
+      // una busqueda o el usuario borro todo lo q tenia el input de buscar
+      // asi los posts de busqueda se eliminan
+      setPostsFiltered(null);
+    }
+  }, [posts, search]);
 
   useEffect(() => {
     loadAllPosts();
@@ -66,6 +91,8 @@ export default function Home() {
   return (
     <HomeView
       {...{
+        onChangeSearch,
+        search,
         isLoading,
         error,
         maxRange,
@@ -73,8 +100,9 @@ export default function Home() {
         minRange,
         setMinRange,
       }}
-      countPost={post?.length}
-      posts={postsRange}
+      countPost={posts?.length}
+      // comprobamos si hay almenos algun post filtrado
+      posts={postsFiltered || postsRange}
     />
   );
 }

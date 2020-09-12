@@ -3,6 +3,7 @@ import React from "react";
 import { ITEMS_FOR_PAGE } from "../config/config";
 
 export default function ButtonLoadPosts({
+  search,
   isLoading,
   error,
   maxRange,
@@ -29,7 +30,7 @@ export default function ButtonLoadPosts({
     }
   };
 
-  return countPost && !isLoading && !error ? (
+  return countPost && !isLoading && !error && !search ? (
     <button
       onClick={loadMorePost}
       className="button button-center button-success"

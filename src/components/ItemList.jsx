@@ -10,7 +10,7 @@ const ItemList = ({ posts }) => (
     {posts.map((post) => (
       <LazyLoad
         key={post.id}
-        offset={[-100, 100]}
+        offset={[-20, 100]}
         placeholder={<ItemListLoading />}
       >
         <li key={post.id}>

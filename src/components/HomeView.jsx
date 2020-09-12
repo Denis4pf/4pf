@@ -12,6 +12,8 @@ import ButtonLoadPosts from "./ButtonLoadPosts";
 import Container from "./Container";
 
 export default function HomeView({
+  onChangeSearch,
+  search,
   isLoading,
   posts,
   error,
@@ -31,6 +33,8 @@ export default function HomeView({
         type="text"
         name="buscar"
         id="buscar"
+        onChange={onChangeSearch}
+        value={search}
         placeholder="Buscar películas..."
         minLength="1"
         className="input"
@@ -38,6 +42,7 @@ export default function HomeView({
       <List {...{ isLoading, posts, error }} />
       <ButtonLoadPosts
         {...{
+          search,
           isLoading,
           error,
           countPost,
