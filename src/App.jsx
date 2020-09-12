@@ -4,8 +4,8 @@ import React from "react";
 import "./styles/App.css";
 
 // components
-import HomeContainer from "./components/HomeContainer";
+import Routers from "./components/Routers";
 
 export default function App() {
-  return <HomeContainer />;
+  return <Routers />;
 }

@@ -1,26 +1,49 @@
 import React from "react";
-import thumbail from "../img/elliot.gif";
 
-const ItemList = ({ post }) => (
+// components
+import { Link } from "react-router-dom";
+import LazyLoad from "react-lazyload";
+import ItemListLoading from "./ItemListLoading";
+
+const ItemList = ({ posts }) => (
   <ul className="list">
-    {post.map((item) => (
-      <li key={item.id} className="list-item">
-        <section className="list-item-content">
-          <span className="list-item-title">{item.title}</span>
-          <p>
-            <p>
-              <b>{item.id}</b> 
-            </p>
-            {item.body}
-          </p>
-        </section>
+    {posts.map((post) => (
+      <LazyLoad
+        key={post.id}
+        offset={[-100, 100]}
+        placeholder={<ItemListLoading />}
+      >
+        <li key={post.id}>
+          <Link to={`/post/${post.id}`} className="list-item">
+            <section className="list-item-content">
+              <h3 className="list-item-title">{post.title}</h3>
+              <h2>{post.id}</h2>
+              <p>
+                {post.body.length >= 206
+                  ? post.body.substring(0, 206) + " [...]"
+                  : post.body}
+              </p>
+            </section>
 
-        <img
-          src={thumbail}
-          alt="Miniatura de la película"
-          className="list-item-thumbail"
-        />
-      </li>
+            <LazyLoad
+              placeholder={
+                <img
+                  src={`https://picsum.photos/5/5`}
+                  className="list-item-thumbail"
+                  alt="Cargando imágen"
+                />
+              }
+              once
+            >
+              <img
+                src="https://picsum.photos/200/200"
+                alt="Miniatura de la película"
+                className="list-item-thumbail"
+              />
+            </LazyLoad>
+          </Link>
+        </li>
+      </LazyLoad>
     ))}
   </ul>
 );

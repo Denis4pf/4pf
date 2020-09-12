@@ -8,10 +8,21 @@ import portada from "../img/portada.svg";
 
 // components
 import List from "./List";
+import ButtonLoadPosts from "./ButtonLoadPosts";
+import Container from "./Container";
 
-export default function HomeView({ isLoading, post, error, loadMorePost }) {
+export default function HomeView({
+  isLoading,
+  posts,
+  error,
+  maxRange,
+  setMaxRange,
+  minRange,
+  setMinRange,
+  countPost,
+}) {
   return (
-    <div className="app">
+    <Container posts={posts}>
       <img src={portada} alt="Portada img" className="portada" />
       <h2 className="title">Películas más buscadas.</h2>
       <p>¡Elige la que más desees!</p>
@@ -24,15 +35,20 @@ export default function HomeView({ isLoading, post, error, loadMorePost }) {
         minLength="1"
         className="input"
       />
-      <List {...{ isLoading, post, error }} />
-      {!isLoading && (
-        <button
-          onClick={loadMorePost}
-          className="button button-center button-success"
-        >
-          Cargar más publicaciones
-        </button>
-      )}
-    </div>
+      <List {...{ isLoading, posts, error }} />
+      <ButtonLoadPosts
+        {...{
+          isLoading,
+          error,
+          countPost,
+
+          maxRange,
+          setMaxRange,
+
+          minRange,
+          setMinRange,
+        }}
+      />
+    </Container>
   );
 }
