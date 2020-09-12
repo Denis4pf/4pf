@@ -1,0 +1,138 @@
+.title {
+  margin: 1rem auto;
+}
+
+.portada {
+  display: block;
+  margin: auto;
+  width: 90px;
+}
+
+.list {
+  margin-top: 2rem;
+  text-align: left;
+  list-style: none;
+}
+
+.list > .list-item {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.794);
+  border-radius: 6px;
+  border: 1px solid rgba(128, 128, 128, 0.493);
+  cursor: pointer;
+  transition: all 0.1s ease;
+  display: flex;
+  align-items: center;
+}
+
+.list > .list-item:hover {
+  transform: scale(1.05);
+}
+
+.list-item-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 15px;
+}
+
+.list-item span {
+  display: block;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
+
+.list-item .list-item-content {
+  font-size: 13px;
+  flex-basis: 360px;
+}
+
+.list-item .list-item-thumbail {
+  width: 100px;
+  height: 100%;
+  margin-left: auto;
+  object-fit: cover;
+}
+
+.list-item .list-item-stars {
+  color: rgb(165, 165, 0);
+  font-size: 18px;
+}
+
+.error-network {
+  display: block;
+  color: rgb(143, 0, 0);
+  margin-top: 2rem;
+}
+
+.loader {
+  margin: 1.5rem auto;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid black;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  animation-name: loader;
+  animation-duration: 0.8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+}
+
+.input {
+  border-radius: 6px;
+  outline: none;
+  display: block;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  text-align: left;
+  width: 100%;
+  border: 1px solid rgba(128, 128, 128, 0.493);
+}
+
+.button{
+  border: 0;
+  padding: .4rem 1rem;
+  text-align: center;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  display: block;
+}
+
+.button-success{
+  background: #006a71;
+  color : white;
+}
+
+.button-center{
+  margin: auto;
+}
+
+@keyframes loader {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(350deg);
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .list-item {
+    flex-direction: column-reverse;
+  }
+
+  .list-item .list-item-thumbail {
+    width: 100%;
+    height: 170px;
+    margin-bottom: 0.8rem;
+  }
+
+  .list-item .list-item-content {
+    width: 100%;
+    flex-basis: auto;
+  }
+}

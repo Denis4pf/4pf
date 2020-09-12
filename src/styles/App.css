@@ -1,0 +1,31 @@
+* {
+  font-family: "Gayathri", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  min-height: 100%;
+  text-align: center;
+  background: #eee;
+  color: rgba(0, 0, 0, 0.753);
+}
+
+#root {
+  margin: 0 0.8rem;
+}
+
+.app {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
