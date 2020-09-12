@@ -16,12 +16,6 @@ export default function ButtonLoadPosts({
     setMaxRange(max);
   };
 
-  // useEffect(() => {
-  //   const correctRange =
-  //     minRange < maxRange && maxRange + ITEMS_FOR_PAGE <= countPost;
-  //   !correctRange && setNotTherePots(true);
-  // }, [minRange, maxRange, countPost]);
-  
   const loadMorePost = () => {
     if (countPost) {
       const correctRange =
