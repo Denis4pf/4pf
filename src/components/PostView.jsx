@@ -15,7 +15,7 @@ function PostViewLayout({ postData }) {
         <div className="title-container">
           <h3 className="title-post">{postData.title}</h3>
           <img
-            src="https://picsum.photos/id/237/200/200"
+            src={`https://picsum.photos/id/${postData.id}/200/200`}
             alt="User Profile"
             className="user-post"
           />
