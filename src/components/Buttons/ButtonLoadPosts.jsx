@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ITEMS_FOR_PAGE } from "../config/config";
+import { ITEMS_FOR_PAGE } from "../../config/config";
 
 export default function ButtonLoadPosts({
   search,

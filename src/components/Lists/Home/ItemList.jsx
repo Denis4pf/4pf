@@ -4,7 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // utils
-import "../styles/lazy-load-images.min.css";
+import "../../../styles/lazy-load-images.min.css";
 
 const ItemList = ({ posts }) => (
   <ul className="list">

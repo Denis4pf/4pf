@@ -49,4 +49,8 @@
     text-align: center;
     margin: 1rem 0;
   }
+
+  .list-item-title{
+    margin-top: 1rem;
+  }
 }

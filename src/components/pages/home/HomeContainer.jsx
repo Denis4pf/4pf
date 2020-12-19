@@ -1,16 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
 
-//styles
-import "../styles/home.css";
-
 // components
 import HomeView from "./HomeView";
 
 // config
-import { API_REQUEST, ITEMS_FOR_PAGE } from "../config/config";
+import { API_REQUEST, ITEMS_FOR_PAGE } from "../../../config/config";
 
 // utils
-import POST_CACHE from "../utils/cache";
+import POST_CACHE from "../../../utils/cache";
 
 export default function Home() {
   const [maxRange, setMaxRange] = useState(ITEMS_FOR_PAGE);
@@ -53,8 +50,9 @@ export default function Home() {
 
   const setPostsRangeMemo = useCallback(() => {
     if (posts) {
-      const newPostRange = [...postsRange, ...posts.slice(minRange, maxRange)];
-      setPostsRange(newPostRange);
+      setPostsRange((oldPosts) => {
+        return [...oldPosts, ...posts.slice(minRange, maxRange)];
+      });
     }
   }, [posts, minRange, maxRange]);
 

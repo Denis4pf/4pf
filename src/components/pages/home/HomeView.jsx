@@ -1,15 +1,13 @@
 import React from "react";
 
 // styles
-import "../styles/home.css";
-
-//files
-import portada from "../img/portada.svg";
+import "../../../styles/home.css";
 
 // components
-import List from "./List";
-import ButtonLoadPosts from "./ButtonLoadPosts";
-import Container from "./Container";
+import CoverPageHome from './components/CoverpageView';
+import List from "../../Lists/Home/List";
+import ButtonLoadPosts from "../../Buttons/ButtonLoadPosts";
+import Container from "../../containers/Container"; 
 
 export default function HomeView({
   onChangeSearch,
@@ -25,9 +23,7 @@ export default function HomeView({
 }) {
   return (
     <Container posts={posts}>
-      <img src={portada} alt="Portada img" className="portada" />
-      <h2 className="title">Películas más buscadas.</h2>
-      <p>¡Elige la que más desees!</p>
+      <CoverPageHome />
 
       <input
         type="text"

@@ -8,6 +8,16 @@
   width: 90px;
 }
 
+.navbar{
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar > a{
+  font-size: 1.5rem;
+}
+
 .list {
   margin-top: 2rem;
   text-align: left;

@@ -1,12 +1,12 @@
 import React from "react";
 
 // components
-import Loader from "./Loader";
-import Container from "./Container";
+import Loader from "../../Loader";
+import Container from "../../containers/Container";
 import { Link } from "react-router-dom";
 
 //css
-import "../styles/post.css";
+import "../../../styles/post.css";
 
 function PostViewLayout({ postData }) {
   return (
